@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 ## Import ridge regresor model and standard scaler pilkle
 
@@ -13,11 +13,11 @@ ridge_model = pickle.load(open(r"C:\Users\godar\OneDrive\Desktop\study material\
 standard_scaler = pickle.load(open(r"C:\Users\godar\OneDrive\Desktop\study material\Machine Learning\Regression\ML and to And project\model\scaler.pkl",'rb'))
 
 # Route for home page
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/predictdata', methods= ['GET','POST'])
+@application.route('/predictdata', methods= ['GET','POST'])
 def predict_datapoint():
     if request.method=='POST':
         Temparature = float(request.form.get('Temparature'))
